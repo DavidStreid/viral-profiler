@@ -26,7 +26,7 @@ process verifyDependencies {
 	'''
 }
 
-process getVariations {
+process pysamstatsVariation {
     input:
     val bamDir
     val fastaFile
