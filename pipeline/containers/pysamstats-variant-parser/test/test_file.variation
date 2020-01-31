@@ -1,0 +1,5 @@
+chrom	pos	ref	reads_all	reads_pp	matches	matches_pp	mismatches	mismatches_pp	deletions	deletions_pp	insertions	insertions_pp	A	A_pp	C	C_pp	T	T_pp	G	G_pp	N	N_pp
+ch1	1591	C	1	0	1	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0
+ch2	1592	T	1	0	1	0	0	0	0	0	0	0	0	0	3	0	5	0	0	0	0	0
+ch3	1593	T	1	0	1	0	0	0	0	0	0	0	0	0	0	0	8	0	4	0	0	0
+ch4	1594	A	1	0	1	0	0	0	0	0	0	0	1	0	0	0	1	0	0	0	0	0
