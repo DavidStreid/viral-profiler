@@ -55,7 +55,15 @@ process parseVariations {
     for vFile in !{variationFiles}
     do
         base_name=$(echo $vFile | xargs -n 1 basename)
-        # TODO - call "pysamstats-variant-parser" using docker
+        dockerReadDir=/data
+        dockerWriteDir=/parsed
+
+        # Resolve symbolic link
+        dataDir=$(dirname $(readlink $vFile))
+
+        docker run --mount type=bind,source=$dataDir,target=$dockerReadDir,readonly \
+                   --mount type=bind,source="$(pwd)",target=$dockerWriteDir \
+                   pysamstats-variant-parser:1.0 $dockerReadDir/$vFile $dockerWriteDir/$base_name.parsed
     done
 	'''
 }
