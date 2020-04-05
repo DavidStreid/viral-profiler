@@ -16,7 +16,7 @@ println """\
 process verifyDependencies {
 	shell:
 	'''
-    readonly required_commands=(pysamstats basename)
+    readonly required_commands=(basename bcftools)
     for cmd in $required_commands; do
       if [ -z $(command -v $cmd) ]
       then
