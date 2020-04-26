@@ -10,18 +10,20 @@
 
 E.g.
 ```
-$ nextflow viral-profiler.nf --bamDir {BAM_DIR} --fasta {FASTA_IDX}
-N E X T F L O W  ~  version 19.10.0
-Launching `../viral-profiler.nf` [small_baekeland] - revision: 623c9e78ce
+$ nextflow viral-profiler.nf --bamDir /PATH/TO/BAM_DIR --fasta /PATH/TO/FASTA_IDX.FA
+N E X T F L O W  ~  version 20.01.0
+Launching `viral-profiler.nf` [nasty_lorenz] - revision: 2e53dcbf4d
+WARN: The access of `config` object is deprecated
 V I R A L   P R O F I L E R
 ===========================
 INPUT
-   fastaFile: {config.fastaFile}
-   bamDirectory: {BAM_DIR}
+   fastaFile: /PATH/TO/FASTA_IDX.FA
+   bamDirectory: /PATH/TO/BAM_DIR
+   Output Directory: ./vcf (in working directory)
 
 executor >  local (2)
-[50/c1309e] process > verifyDependencies [100%] 1 of 1 ✔
-[cc/8dda59] process > variantCall        [  0%] 0 of 1
+[1a/335d54] process > verifyDependencies [100%] 1 of 1  ✔
+[d4/ece1d2] process > variantCall        [  0%] 0 of 1                                                      
 ```
 ## Install
 ### Dependencies
