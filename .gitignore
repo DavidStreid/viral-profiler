@@ -1,0 +1,7 @@
+# data
+**/*.vcf
+
+# Ignore nextflow
+pipeline/.nextflow/*
+pipeline/work/*
+**/.nextflow.log*
