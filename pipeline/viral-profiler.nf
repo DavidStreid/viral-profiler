@@ -3,6 +3,7 @@
 bamDir = params.bamDir
 fastaFile = config.fastaFile
 pVal = config.vCallpvalThreshold
+outDir = 'vcf'
 
 println """\
          V I R A L   P R O F I L E R
@@ -10,6 +11,7 @@ println """\
          INPUT
             fastaFile: ${fastaFile}
             bamDirectory: ${bamDir}
+            Output Directory: ./${outDir} (in working directory)
          """
          .stripIndent()
 
@@ -33,17 +35,16 @@ process variantCall {
     val bamDir
     val fastaFile
 
-    output:
-    file '*.vcf' into vcfFiles
-
     shell:
     '''
     bamFiles=$(find !{bamDir} -type f -name "*.bam")
     for BAM in $bamFiles
     do
-        # /Users/Bike_Thoughts/Documents/jhu/spr20/irp/data/bam/ZH9471_3071997.hpv.bam
         bam_name=$(echo $BAM | xargs -n 1 basename)
         bcftools mpileup -f !{fastaFile} $BAM | bcftools call --consensus-caller --pval-threshold !{pVal} > ${bam_name}.vcf
     done
+
+    vcf_out=!{baseDir}/vcf
+    mkdir -p ${vcf_out} && mv *.vcf ${vcf_out}
     '''
 }
