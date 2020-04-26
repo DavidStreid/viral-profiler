@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
 bamDir = params.bamDir
-fastaFile = config.fastaFile
+fastaFile = params.fasta
 pVal = config.vCallpvalThreshold
 outDir = 'vcf'
 
